@@ -3,6 +3,7 @@
 //
 
 #include "Node.h"
+#include <iostream>
 
 Node::Node(int index, int value) {
     this->value = value;
@@ -63,7 +64,7 @@ bool Node::is_index_inside(int index) {
 
 int Node::get_from(int start, int end) {
     if (start == 0) start = this->index_start;
-    if (end == 0) end = this->index_end;
+    if (end == 0 || end > this->index_end) end = this->index_end;
     if (this->index_start == start && this->index_end == end)
         return this->value;
     if (this->left->is_index_inside(start))
@@ -73,7 +74,7 @@ int Node::get_from(int start, int end) {
         else
         {
             return this->func(
-                    this->left->get_value(),
+                    this->left->get_from(start, end),
                     this->right->get_from(0, end)
                     );
         }
