@@ -56,5 +56,14 @@ int main() {
     std::cout << "- (7, 8) -> " << root->segment_value(7, 8) << std::endl;
     std::cout << "- (4, 8) -> " << root->segment_value(4, 8) << std::endl;
     delete root;
+
+    root = new Root(min, std::vector<int> {5, 3, 6, 2, 4, 9, 5});
+    std::cout << "# Root(min, {5, 3, 6, 2, 4, 9, 5})" << std::endl;
+    std::cout << "- (1, 4) -> " << root->segment_value(1, 4) << std::endl;
+    std::cout << "- (1, 2) -> " << root->segment_value(1, 2) << std::endl;
+    std::cout << "- (1, 1) -> " << root->segment_value(1, 1) << std::endl;
+    std::cout << "- (6, 6) -> " << root->segment_value(6, 6) << std::endl;
+    std::cout << "- (6, 7) -> " << root->segment_value(6, 7) << std::endl;
+    delete root;
     return 0;
 }
