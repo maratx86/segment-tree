@@ -6,22 +6,30 @@ DIR_OBJS = ./objs/
 
 SRCS = Root.cpp Node.cpp main.cpp
 SRCS_T = Root.cpp Node.cpp tests.cpp
+
 OBJS = $(SRCS:.cpp=.o)
 OBJS_T = $(SRCS_T:.cpp=.o)
 
+WD_SRCS = $(addprefix $(DIR_SRCS),$(SRCS))
+WD_SRCS_T = $(addprefix $(DIR_SRCS),$(SRCS_T))
+WD_OBJS = $(addprefix $(DIR_OBJS),$(OBJS))
+WD_OBJS_T = $(addprefix $(DIR_OBJS),$(OBJS_T))
 
-all: $(EXEC)
+all: $(DIR_OBJS) $(EXEC)
 
-test: $(EXEC_T)
+test: $(DIR_OBJS) $(EXEC_T)
 
-$(EXEC): $(OBJS)
-		c++ $(OBJS) -o $(EXEC)
+$(DIR_OBJS):
+		mkdir -p $(DIR_OBJS)
 
-$(EXEC_T): $(OBJS_T)
-		c++ $(OBJS_T) -o $(EXEC_T)
+$(EXEC): $(WD_OBJS)
+		c++ $(WD_OBJS) -o $(EXEC)
 
-%.o: %.cpp
-		c++ -s $< -o $@
+$(EXEC_T): $(WD_OBJS_T)
+		c++ $(WD_OBJS_T) -o $(EXEC_T)
+
+$(DIR_OBJS)%.o: $(DIR_SRCS)%.cpp
+		c++ -c $< -o $@ -I./includes
 
 clean:
-		rm -rf $(OBJS) $(EXEC) $(OBJS_T) $(EXEC_T)
+		rm -rf $(WD_OBJS) $(EXEC) $(WD_OBJS_T) $(EXEC_T)

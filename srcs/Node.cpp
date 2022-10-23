@@ -2,7 +2,7 @@
 // Created by Marat on 2022-10-17.
 //
 
-#include "Node.h"
+#include "../includes/Node.h"
 #include <iostream>
 
 Node::Node(int index, int value) {

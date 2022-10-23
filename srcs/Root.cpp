@@ -2,7 +2,7 @@
 // Created by Marat on 2022-10-18.
 //
 
-#include "Root.h"
+#include "../includes/Root.h"
 
 Root::Root(int (*func)(int, int), const std::vector<int> &values)
            : Node(values, 1, values.size(), func) {
