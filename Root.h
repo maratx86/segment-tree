@@ -9,7 +9,7 @@
 
 class Root: protected Node {
 public:
-    Root(int (*func)(int, int), std::vector<int> values);
+    Root(int (*func)(int, int), const std::vector<int> &values);
     ~Root();
     int segment_value(int start, int end);
 };
