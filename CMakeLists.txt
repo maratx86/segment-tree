@@ -3,6 +3,8 @@ project(segment_tree)
 
 set(CMAKE_CXX_STANDARD 11)
 
+include_directories(./includes)
+
 add_executable(segment_tree
         srcs/main.cpp
         srcs/Node.cpp includes/Node.h

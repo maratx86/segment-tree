@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../includes/Root.h"
+#include "Root.h"
 
 int sum(int a, int b) { return a + b; }
 int min(int a, int b) { return (a < b) ? a : b; }
