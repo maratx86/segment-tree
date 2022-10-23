@@ -17,7 +17,7 @@ protected:
     int (*func)(int, int);
 public:
     Node(int index, int value);
-    Node(std::vector<int> values, int start, int end, int (*func)(int, int));
+    Node(const std::vector<int> &values, int start, int end, int (*func)(int, int));
     ~Node();
     bool is_leaf();
     int get_value();

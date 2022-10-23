@@ -4,7 +4,7 @@
 
 #include "Root.h"
 
-Root::Root(int (*func)(int, int), std::vector<int> values)
+Root::Root(int (*func)(int, int), const std::vector<int> &values)
            : Node(values, 1, values.size(), func) {
 
 }

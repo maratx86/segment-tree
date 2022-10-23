@@ -13,7 +13,7 @@ Node::Node(int index, int value) {
     this->index_end = index;
 }
 
-Node::Node(std::vector<int> values, int start, int end, int (*func)(int, int)) {
+Node::Node(const std::vector<int> &values, int start, int end, int (*func)(int, int)) {
     this->func = func;
     this->index_start = start;
     this->index_end = end;
